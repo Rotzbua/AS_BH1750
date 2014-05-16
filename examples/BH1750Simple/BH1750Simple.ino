@@ -47,22 +47,20 @@ void setup(){
   else {
     Serial.println("Sensor not present");
   }
-  
-  /*
-  // to check the sensor present
-  if(sensor.isPresent()) {
-    Serial.println("Sensor present");
-  } 
-  else {
-    Serial.println("Sensor not present");
-  }*/
 }
 
 void loop() {
-  float lux = sensor.readLightLevel();
-  Serial.print("Light level: ");
-  Serial.print(lux);
-  Serial.println(" lx");
+  // check sensor present
+  if(sensor.isPresent()) {
+    Serial.println("Sensor present");
+    // get sensor data
+    float lux = sensor.readLightLevel();
+    Serial.print("Light level: ");
+    Serial.print(lux);
+    Serial.println(" lx");
+  } 
+  else {
+    Serial.println("Sensor not present or initialized");
+  }
   delay(1000);
 }
-
