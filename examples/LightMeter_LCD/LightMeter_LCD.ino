@@ -1,23 +1,19 @@
-#include <Wire.h>
-#include <AS_BH1750.h>
-#include <LiquidCrystal.h>
-
 /* 
  * LightMeter_LCD
  * 
  * Version 1.2
  * Datum: 05.08.2013
  * 
- * Das Programm benutzt den BH1750 (Umgebiungslichtsensor)
+ * Das Programm benutzt den BH1750 (Umgebungslichtsensor)
  * und zeigt die Werte in Lux auf einem 16x2-Symbol-LCD.
  * 
  * Verdrahtung (UNO, Nano...)
  * 
  * BH1750:
- *     Sensor SCL pin an A5
- *     Sensor SDA pin an A4
  *     Sensor VDD pin an 5V
  *     Sensor GND pin an GND
+ *     Sensor SCL pin an A5
+ *     Sensor SDA pin an A4
  *     Sensor ADDR pin frei
  *  
  * LCD in 4-Bit-Modus:
@@ -29,7 +25,6 @@
  *     LCD D6 pin an digital pin 6
  *     LCD D7 pin an digital pin 7
  * 
- *
  *   Copyright (c) 2013 Alexander Schulz.  All right reserved.
  *  
  *   This program is free software: you can redistribute it and/or modify
@@ -45,6 +40,10 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+#include <Wire.h>
+#include <AS_BH1750.h>
+#include <LiquidCrystal.h>
 
 AS_BH1750 lightMeter;
 
@@ -62,8 +61,8 @@ void setup() {
   delay(1000);
   lcd.clear();
 
+  // Prüfen, ob Sensor initialisierbar ist
   if(!lightMeter.begin()){
-    // Prüfen, ob Sensor vorhanden ist
     lcd.clear();
     lcd.setCursor(0,0); 
     lcd.print("BH1750 not found");
@@ -73,7 +72,6 @@ void setup() {
       delay(1000);
     }
   }
-
 }
 
 void loop() {
@@ -91,6 +89,3 @@ void loop() {
 
   delay(500);
 }
-
-
-
