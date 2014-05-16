@@ -96,7 +96,7 @@ public:
    * Constructor.
    * Erlaubt die I2C-Adresse des Sensors zu ändern. 
    * Standardadresse: 0x23, Alternativadresse: 0x5C. 
-   * Es sind entsprechende Konstanten definiert: BH1750_DEFAULT_I2CADDR  und BH1750_SECOND_I2CADDR.
+   * Es sind entsprechende Konstanten definiert: BH1750_DEFAULT_I2CADDR und BH1750_SECOND_I2CADDR.
    * Bei Nichtangabe wird die Standardadresse verwendet. 
    * Um die Alternativadresse zu nutzen, muss der Sensorpin 'ADR' des Chips auf VCC gelegt werden.
    */
@@ -134,7 +134,7 @@ public:
 
   /**
    * Liefert aktuell gemessenen Wert für Helligkeit in lux (lx).
-   * Falls sich der Sensorf in Stromsparmodus befindet, wird er automatisch geweckt.
+   * Falls sich der Sensor in Stromsparmodus befindet, wird er automatisch geweckt.
    *
    * Wurde der Sensor (noch) nicht initialisiert (begin), wird der Wert -1 geliefert.
    */
