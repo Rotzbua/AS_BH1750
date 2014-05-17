@@ -61,7 +61,7 @@ void setup() {
   delay(1000);
   lcd.clear();
 
-  // Prüfen, ob Sensor initialisierbar ist
+  // Prüfen, ob Sensor initialisiert worden ist
   if(!lightMeter.begin()){
     lcd.clear();
     lcd.setCursor(0,0); 
